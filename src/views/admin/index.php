@@ -16,6 +16,9 @@ $this->params['breadcrumbs'][] = $this->title;
             <div>
                 <?= Html::a('Ingredients', ['admin/ingredient/index']) ?>
             </div>
+            <div>
+                <?= Html::a('Dishes', ['admin/dish/index']) ?>
+            </div>
         </main>
     </div>
 </div>
