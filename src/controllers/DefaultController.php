@@ -2,6 +2,9 @@
 
 namespace sibus\food\controllers;
 
+use sibus\food\finders\DishFinder;
+use sibus\food\models\Dish;
+use yii\helpers\VarDumper;
 use yii\web\Controller;
 
 /**
@@ -15,6 +18,12 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $searchModel = new DishFinder();
+        $dataProvider = $searchModel->search(\Yii::$app->request->queryParams);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
     }
 }
